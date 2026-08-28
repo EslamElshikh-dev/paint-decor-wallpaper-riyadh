@@ -1,0 +1,31 @@
+name: Transfer paint project
+
+on:
+  push:
+    paths:
+      - '.github/workflows/transfer.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  transfer:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout destination repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Copy prepared paint project
+        shell: bash
+        run: |
+          set -euo pipefail
+          git clone --depth 1 --branch preview/paint-decor-wallpaper-20260828 https://github.com/EslamElshikh-dev/allnaeem-carpentry.git /tmp/source
+          rsync -a --delete --exclude='.git' /tmp/source/ ./
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'feat: publish paint decor wallpaper Riyadh site'
+          git push origin main
