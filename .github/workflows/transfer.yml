@@ -23,11 +23,11 @@ jobs:
         run: |
           set -euo pipefail
           git clone --depth 1 --branch preview/paint-decor-wallpaper-20260828 https://github.com/EslamElshikh-dev/allnaeem-carpentry.git /tmp/source
-          rsync -a --delete --exclude='.git' /tmp/source/ ./
+          rsync -a --delete --exclude='.git' --exclude='.github/workflows' /tmp/source/ ./
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -A
           git commit -m 'feat: publish paint decor wallpaper Riyadh site'
           git push origin main
 
-# Trigger transfer after workflow creation.
+# Preserve workflow files during automated transfer.
