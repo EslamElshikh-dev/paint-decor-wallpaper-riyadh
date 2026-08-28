@@ -29,3 +29,5 @@ jobs:
           git add -A
           git commit -m 'feat: publish paint decor wallpaper Riyadh site'
           git push origin main
+
+# Trigger transfer after workflow creation.
