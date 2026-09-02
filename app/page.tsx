@@ -83,6 +83,21 @@ const websiteSchema = {
   name: BUSINESS_NAME,
   inLanguage: "ar-SA",
   publisher: { "@id": `${SITE_URL}/#business` },
+  creator: {
+    "@type": "Person",
+    "@id": "https://www.eslam-elshikh.com/#person",
+    name: "إسلام الشيخ",
+    alternateName: [
+      "المهندس إسلام الشيخ",
+      "المهندس اسلام الشيخ",
+      "اسلام الشيخ",
+      "إسلام الشيخ | Eslam Elshikh",
+      "Eslam Elshikh",
+      "Islam Elshikh",
+      "Eslam El Sheikh",
+    ],
+    url: "https://www.eslam-elshikh.com/",
+  },
 };
 
 const trustPoints = [
